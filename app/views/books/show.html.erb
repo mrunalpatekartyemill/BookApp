@@ -1,2 +1,16 @@
+
 <p>Title :</p><%= @book.title%>
 <p>Thoughts: </p><%= @book.thought %>
+
+<% title @book.title %>
+
+<h2><%=link_to(h(@book.title), book_path(@book)) %></h2>
+<p><%= @book.thought %></p>
+
+<%if @comments %>
+    <h3>Comments</h3>
+    <% for comment in @comments do%>
+      <p><%= comment.author%></p>
+        <p><%= comment.text%></p>
+    <%end%>
+<%end%>
